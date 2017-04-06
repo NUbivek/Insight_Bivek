@@ -1,16 +1,16 @@
-# -*- coding: utf-8 -*-
+#Import data
 import operator
-def getTop10IPs(filename):
+def getTop10IPs(filename): #define filename
   hash_map = {}
-  with open(filename,'r') as f:
+  with open(filename,'r') as f: ##open filename
     for line in f:
-      IPAddress = line.split()[0]
+      IPAddress = line.split()[0] 
       if IPAddress in hash_map:
         hash_map[IPAddress] += 1
       else:
         hash_map[IPAddress] = 1
 
-  #finalRetList = sorted(hash_map.items(), key = lambda item: item[1], reverse = True)[:10]
+ ####
   finalRetList=[]
   for item in hash_map:
     if (len(finalRetList)<10):
