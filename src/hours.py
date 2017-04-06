@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+##Import date time
 from datetime import datetime 
 import operator
 # @param name of the log file
@@ -8,8 +8,8 @@ def getTop10busiest(filename):
   date = []
   time = []
   dt =[]
-  with open(filename,'r') as f:
-    for line in f:
+  with open(filename,'r') as f: ### Runs when the file is open
+    for line in f: #### Run for loop to iterate
       date_time = line.split()[3]
       dt.append(date_time[1:]+line.split()[4][:-1]) # stores the data that needs to be written inside the hours.txt file
       time.append(date_time[13:])
@@ -47,7 +47,7 @@ def getTop10busiest(filename):
   # returns in decending order
   return sorted(finalRetList, key=operator.itemgetter(1) , reverse = True) 
 
-#converts date in string formate to datetime format to calculate the time difference 
+#converts date in string format to date/time format to calculate the time difference 
 def convertDate(date, time):
   temp = date.split('/')
   time = time.split(':')
@@ -64,7 +64,7 @@ def writeFile(tuplesOfHostFreq, filename):
     fileHandler.write("%s, %d\n" % (item[0],item[1]))
   fileHandler.close()
 
-
+##write to file named "hours"
 if __name__ == "__main__":
   busiest_time = getTop10busiest("log.txt")
   writeFile(busiest_time, "hours.txt")
