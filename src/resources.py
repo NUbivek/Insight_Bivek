@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+
+##Import heappush
 from heapq import heappush, heappop
 import operator
 
