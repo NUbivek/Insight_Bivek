@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+##Import datetime
 from datetime import datetime 
 import operator
 def blocked(filename):
@@ -75,7 +75,7 @@ def writeFile(tuplesOfHostFreq, filename):
     fileHandler.write("%s \n" % (item))
   fileHandler.close()
 
-
+##write output to file
 if __name__ == "__main__":
   blocked_list = blocked("log.txt")
   writeFile(blocked_list, "blocked.txt")
